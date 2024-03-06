@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="Generator" content="Microsoft Word 15 (filtered medium)">
+    <meta name="Generator" content="Microsoft Word 15 (filtered medium)" />
     <title>Jing Daily</title>
 
     <!--
@@ -61,11 +61,11 @@
       body,
       #bodyTable,
       #bodyCell {
-        overscroll-behavior: none;
-        height: 100% !important;
-        margin: 0;
-        padding: 0;
+        overscroll-behavior: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
         width: 100% !important;
+        height: auto !important;
       }
       table {
         border-collapse: collapse;
@@ -75,7 +75,7 @@
         border: 0;
         outline: none;
         text-decoration: none;
-        max-width: 520px !important;
+        display: block;
       }
       h1,
       h2,
@@ -85,6 +85,7 @@
       h6 {
         margin: 0;
         padding: 0;
+        font-weight: 500 !important;
       }
       p {
         margin: 1em 0;
@@ -117,6 +118,8 @@
       }
       img {
         -ms-interpolation-mode: bicubic;
+        width: 100% !important;
+        height: auto !important;
       }
       body,
       table,
@@ -129,7 +132,7 @@
         -webkit-text-size-adjust: 100%;
       }
       .header {
-        padding-bottom: 80px;
+        padding-bottom: 24px;
       }
       .flexibleContainerCell {
         padding-top: 0px;
@@ -147,16 +150,10 @@
       }
       .imageContentLast,
       .leftColumnCell img {
-        padding-bottom: 8px;
+        padding-bottom: 16px;
       }
       .imageContentLast a {
         display: block;
-      }
-      .richtext a {
-        text-decoration: underline !important;
-        text-decoration-thickness: 1px;
-        text-underline-offset: 0.15em;
-        text-decoration-style: dotted !important;
       }
       .richtext a:hover {
         text-decoration-style: solid !important;
@@ -183,19 +180,17 @@
       h4,
       h5,
       h6 {
-        color: #202020;
-        font-family: "Times New Roman", Times, serif;
-        font-size: 28px;
-        line-height: 110%;
-        text-align: Left;
-        letter-spacing: -0em;
-        margin-top: -0.05em;
-        font-weight: normal;
+        color: #202020 !important;
+        font-family: Georgia, "Times New Roman", Times, serif !important;
+        text-align: left !important;
+        letter-spacing: -0.01em !important;
+        margin-top: -0.05em !important;
+        font-weight: bold !important;
       }
       h1 {
-        font-size: 36px;
-        line-height: 1;
-        letter-spacing: -0.012em;
+        font-size: 32px;
+        line-height: 1.125;
+        letter-spacing: -0.025em !important;
         margin-bottom: 0.25em;
       }
       h3 {
@@ -203,13 +198,12 @@
       }
       h4 {
         font-size: 24px;
-        line-height: 1.2;
-        letter-spacing: -0.0025em;
+        line-height: 1.3;
         margin: 0;
       }
-      h3 a,
-      h2 a {
-        font-weight: normal;
+      h5 {
+        font-size: 16px;
+        line-height: 1.3;
       }
       p:last-child {
         margin-bottom: 0;
@@ -217,7 +211,7 @@
       small {
         font-family: Helvetica, sans-serif;
         font-size: 12px;
-        line-height: 1.2 !important;
+        line-height: 1.3 !important;
         display: inline-block;
       }
       .label,
@@ -237,67 +231,37 @@
         font-family: Helvetica, sans-serif !important;
       }
       .textContent,
+      .textContent p,
       .textContentLast {
         color: #202020;
-        font-family: "Times New Roman", Times, serif;
+        font-family: Georgia, "Times New Roman", Times, serif;
         font-size: 16px;
-        line-height: 125%;
+        line-height: 130%;
         text-align: Left;
       }
       .noLeading {
         line-height: 1;
       }
-      .textContent a,
-      .textContentLast a,
-      p a {
-        color: #202020;
-        text-decoration: none;
-        text-decoration-style: dotted !important;
-        text-decoration-thickness: 1px !important;
-        text-underline-offset: 0.15em !important;
-        text-decoration-color: rgba(0, 0, 0, 0.25);
-      }
-      .textContent a:hover,
-      .textContentLast a:hover,
-      p a:hover {
-        text-decoration-style: solid;
-      }
-      .textContent p {
-        font-size: 20px;
-        line-height: 1.2;
-        letter-spacing: -0.0025em;
-        margin: 0;
-      }
       .textContent p:not(:last-child) {
         margin-bottom: 1em;
       }
-      .textOnly a {
-        text-decoration: underline !important;
-        text-decoration-style: dotted !important;
+      .textContent ul:first-child,
+      .textContent ol:first-child {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
       }
       .textContent ul,
       .textContent ol {
-        padding-left: 1em;
+        padding-left: 0.95em;
         margin-left: 0;
         font-size: 16px;
-        line-height: 125%;
+        line-height: 130%;
         text-align: Left;
       }
       .textContent ul li {
-        list-style: none;
+        list-style: square;
         position: relative;
-      }
-
-      .textContent ul li::before {
-        content: "" !important;
-        background-color: #202020 !important;
-        display: inline-block !important;
-        width: 0.3em !important;
-        height: 0.3em !important;
-        margin-left: -1em !important;
-        top: 0.5em !important;
-        border: 1px solid #202020 !important;
-        position: absolute !important;
+        margin-bottom: 1em;
       }
       .nestedContainer {
         padding-top: 20px;
@@ -362,7 +326,7 @@
       .emailSectionHeader * {
         font-weight: bold !important;
         font-family: Helvetica, sans-serif !important;
-        font-size: 26px !important;
+        font-size: 26px;
         letter-spacing: -0.025em;
       }
       td[class="label"] {
@@ -373,7 +337,7 @@
       }
       .largePost p {
         font-size: 20px;
-        line-height: 1.2;
+        line-height: 1.3;
         letter-spacing: -0.00125em;
         margin: 0;
       }
@@ -384,10 +348,10 @@
       .smallPost p {
         font-size: 16px;
         margin: 0.5em 0 0;
-        letter-spacing: 0.01em;
-        font-family: "Times New Roman", Times, serif;
+        font-family: Georgia, "Times New Roman", Times, serif;
       }
-      .smallPost ul:first-child, .smallPost ol:first-child {
+      .smallPost ul:first-child,
+      .smallPost ol:first-child {
         margin-top: 0;
         padding-top: 0;
       }
@@ -395,14 +359,30 @@
         margin-top: 0;
       }
       .smallPost li:not(:last-child) {
-        margin-bottom: 0.5em;
+        margin-bottom: 1em;
       }
       .smallPostText {
         font-size: 16px;
-        line-height: 1.2;
+        line-height: 1.3;
         letter-spacing: -0.00125em;
         margin: 0;
-        font-family: "Times New Roman", Times, serif;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      .tinyPost p {
+        font-size: 16px;
+        margin: 0.5em 0 0;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      .tinyPost ul:first-child,
+      .tinyPost ol:first-child {
+        margin-top: 0;
+        padding-top: 0;
+      }
+      .tinyPost li p:first-child {
+        margin-top: 0;
+      }
+      .tinyPost li:not(:last-child) {
+        margin-bottom: 1em;
       }
       .endMatter {
         border-bottom: 1px dotted #202020;
@@ -429,11 +409,12 @@
       .ruleXl {
         background: none;
         width: 100%;
-        border-top: 4px solid #202020;
+        border-top: 4px solid #202020 !important;
+        border-style: solid !important;
       }
       .sectionSeparator {
         border-top: 2px solid #202020;
-        margin: 18px 0 14px 0;
+        margin: 18px 0 18px 0;
       }
       .sectionSeparatorThick {
         border-top: 4px solid #202020;
@@ -474,7 +455,7 @@
         td[class="textContent"] h3 a,
         h3 a {
           color: #202020;
-          font-family: "Times New Roman", Times, serif;
+          font-family: Georgia, "Times New Roman", Times, serif;
           font-size: 24px !important;
           line-height: 110% !important;
           text-align: left !important;
@@ -489,9 +470,17 @@
         }
       }
       @media only screen and (max-width: 600px) {
+        .largePost p {
+          font-size: 16px !important;
+          line-height: 1.3 !important;
+          letter-spacing: -0.00125em !important;
+          margin: 0 !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
         table[class="smallHeadline"] td[class="textContent"] h3,
         table[class="smallHeadline"] td[class="textContent"] h3 a {
-          font-size: 20px !important;
+          font-size: 24px !important;
           line-height: 1.12 !important;
           letter-spacing: -0.0025em !important;
           margin: 0 !important;
@@ -507,8 +496,8 @@
         h1 a,
         td[class="textContent"] h1 {
           font-size: 28px !important;
-          line-height: 1 !important;
-          letter-spacing: -0.02em !important;
+          line-height: 1.1 !important;
+          letter-spacing: -0.03em !important;
           margin-bottom: 0.25em !important;
         }
       }
@@ -517,9 +506,20 @@
         td[class="textContent"] h4,
         td[class="textContent"] h4 a,
         h4 a {
-          font-size: 20px !important;
+          font-size: 22px !important;
           line-height: 1.12 !important;
-          letter-spacing: -0.0025em !important;
+          letter-spacing: -0.02em !important;
+          margin: 0 !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        h5,
+        td[class="textContent"] h5,
+        td[class="textContent"] h5 a,
+        h5 a {
+          font-size: 16px !important;
+          line-height: 1.3 !important;
+          letter-spacing: -0.00125em !important;
           margin: 0 !important;
         }
       }
@@ -538,6 +538,11 @@
         td[class="flexibleContainerCell"] {
           padding-right: 12px !important;
           padding-left: 12px !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .emailSectionHeader * {
+          font-size: 22px !important;
         }
       }
       @media only screen and (max-width: 600px) {
@@ -573,10 +578,12 @@
         }
       }
       @media only screen and (max-width: 600px) {
-        td[class="smallPost"] p {
+        td[class="smallPost"] p,
+        td[class="smallPostText"] p {
           font-size: 14px !important;
-          line-height: 1.2 !important;
-          font-family: "Times New Roman", Times, serif !important;
+          line-height: 1.3 !important;
+          letter-spacing: 0 !important;
+          font-family: Georgia, "Times New Roman", Times, serif !important;
         }
       }
       @media only screen and (max-width: 600px) {
@@ -865,6 +872,18 @@
                                                       playing and interacting
                                                       with available companions.
                                                     </p>
+                                                    <ul>
+                                                      <li>List item 1</li>
+                                                      <li>List item 2</li>
+                                                      <li>List item 3</li>
+                                                      <li>List item 4</li>
+                                                    </ul>
+                                                    <ol>
+                                                      <li>List item 1</li>
+                                                      <li>List item 2</li>
+                                                      <li>List item 3</li>
+                                                      <li>List item 4</li>
+                                                    </ol>
                                                   </td>
                                                 </tr>
                                               </table>
@@ -928,7 +947,6 @@
                                                 src="https://mcusercontent.com/555a04b48e1f20aecf5db4d61/images/99f408c5-d83a-607d-662b-3229fa6d988d.jpg"
                                                 width="520"
                                                 class="flexibleImage"
-                                                style="max-width: 520px"
                                               />
                                             </td>
                                           </tr>
@@ -949,7 +967,6 @@
                                               </h1>
 
                                               <div
-                                                class="richtext"
                                                 mc:edit="module_large_text_description"
                                               >
                                                 <p>
@@ -1382,9 +1399,7 @@
                                                   </td>
                                                 </tr>
                                                 <tr>
-                                                  <td
-                                                    class="smallPostText richtext richtext"
-                                                  >
+                                                  <td class="smallPostText">
                                                     <p
                                                       mc:edit="module_small_post_text"
                                                     >
@@ -1609,7 +1624,6 @@
                                                   <td
                                                     align="left"
                                                     valign="top"
-                                                    class="imageContentLast"
                                                     mc:edit="module_image_only"
                                                   >
                                                     <a href="#">
@@ -1638,6 +1652,110 @@
                           </td>
                         </tr>
                         <!-- // MODULE: ADVERTISEMENT ROW -->
+
+                        <!-- MODULE: TEXT SMALL ONLY: SMALL ROW // -->
+                        <tr
+                          mc:repeatable="module"
+                          mc:variant="post: small text only"
+                        >
+                          <td align="center" valign="top" class="tinyPost">
+                            <!-- CENTERING TABLE // -->
+                            <table
+                              border="0"
+                              cellpadding="0"
+                              cellspacing="0"
+                              width="100%"
+                            >
+                              <tr>
+                                <td align="center" valign="top">
+                                  <!-- FLEXIBLE CONTAINER // -->
+                                  <table
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="560"
+                                    class="flexibleContainer"
+                                  >
+                                    <tr>
+                                      <td
+                                        align="center"
+                                        valign="top"
+                                        width="560"
+                                        class="flexibleContainerCell"
+                                      >
+                                        <table
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
+                                          width="100%"
+                                          class="nestedContainer"
+                                        >
+                                          <tr>
+                                            <td valign="top">
+                                              <!-- CONTENT TABLE // -->
+                                              <table
+                                                align="left"
+                                                border="0"
+                                                cellpadding="0"
+                                                cellspacing="0"
+                                                class="flexibleContainer"
+                                              >
+                                                <tr>
+                                                  <td
+                                                    valign="top"
+                                                    class="smallPostHeadline"
+                                                  >
+                                                    <h5>
+                                                      <a
+                                                        href="#"
+                                                        mc:edit="module_small_text_post_headline"
+                                                      >
+                                                        Van Cleef & Arpels
+                                                        presented the third
+                                                        edition of its
+                                                        &ldquo;Danse en
+                                                        Images&rdquo; (Dance in
+                                                        Images) showcase.
+                                                      </a>
+                                                    </h5>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td class="smallPostText">
+                                                    <p
+                                                      mc:edit="module_small_text_post_text"
+                                                    >
+                                                      Comprising over 20 dance
+                                                      film works and workshops
+                                                      by French dance masters,
+                                                      in Beijing from December 7
+                                                      to 9. The event is
+                                                      intended to promote the
+                                                      relationship between
+                                                      <a href="#"
+                                                        >Van Cleef & Arpels and
+                                                        dance through diverse
+                                                        collaborative projects.
+                                                      </a>
+                                                    </p>
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                              <!-- // CONTENT TABLE -->
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- // FLEXIBLE CONTAINER -->
+                                </td>
+                              </tr>
+                            </table>
+                            <!-- // CENTERING TABLE -->
+                          </td>
+                        </tr>
+                        <!-- // MODULE: TEXT ONLY: SMALL ROW -->
 
                         <!-- FOOTER // -->
                         <tr>
