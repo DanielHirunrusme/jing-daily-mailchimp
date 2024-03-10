@@ -1,0 +1,2108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="Generator" content="Microsoft Word 15 (filtered medium)" />
+    <title>Jing Daily</title>
+
+    <!--
+        	This email is an experimental proof-of-concept based on the
+            idea that the most common design patterns seen in email can
+            be placed in modular blocks and moved around to create
+            different designs.
+
+			The same principle is used to build the email templates in
+            MailChimp's Drag-and-Drop email editor.
+
+			This email is optimized for mobile email clients, and even
+            works relatively well in the Android Gmail App, which does
+            not support Media Queries, but does have limited mobile-
+            friendly functionality.
+
+			While this coding method is very flexible, it can be more
+            brittle than traditionally-coded emails, particularly in
+            Microsoft Outlook 2007-2010. Outlook-specific conditional
+            CSS is included to counteract the inconsistencies that
+            crop up.
+            
+            For more information on HTML email design and development,
+            visit http://templates.mailchimp.com
+        -->
+
+    <!--
+        	Outlook Conditional CSS
+
+            These two style blocks target Outlook 2007 & 2010 specifically, forcing
+            columns into a single vertical stack as on mobile clients. This is
+            primarily done to avoid the 'page break bug' and is optional.
+
+            More information here:
+			http://templates.mailchimp.com/development/css/outlook-conditional-css
+        -->
+    <!--[if mso 12]>
+      <style type="text/css">
+        .flexibleContainer {
+          display: block !important;
+          width: 100% !important;
+        }
+      </style>
+    <![endif]-->
+    <!--[if mso 14]>
+      <style type="text/css">
+        .flexibleContainer {
+          display: block !important;
+          width: 100% !important;
+        }
+      </style>
+    <![endif]-->
+
+    <style type="text/css">
+      body,
+      #bodyTable,
+      #bodyCell {
+        overscroll-behavior: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      img,
+      a img {
+        border: 0;
+        outline: none;
+        text-decoration: none;
+        display: block;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+        padding: 0;
+        font-weight: 500 !important;
+      }
+      p {
+        margin: 1em 0;
+      }
+      a {
+        color: #202020 !important;
+        text-decoration: none !important;
+      }
+      .ReadMsgBody {
+        width: 100%;
+      }
+      .ExternalClass {
+        width: 100%;
+      }
+      .ExternalClass,
+      .ExternalClass p,
+      .ExternalClass span,
+      .ExternalClass font,
+      .ExternalClass td,
+      .ExternalClass div {
+        line-height: 100%;
+      }
+      table,
+      td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+      #outlook a {
+        padding: 0;
+      }
+      img {
+        -ms-interpolation-mode: bicubic;
+        width: 100% !important;
+        height: auto !important;
+      }
+      body,
+      table,
+      td,
+      p,
+      a,
+      li,
+      blockquote {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+      .header {
+        padding-bottom: 24px;
+      }
+      .flexibleContainerCell {
+        padding-top: 0px;
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+      .flexibleImage {
+        height: auto;
+      }
+      .topShim {
+        padding-top: 10px;
+      }
+      .bottomShim {
+        padding-bottom: 20px;
+      }
+      .imageContentLast,
+      .leftColumnCell img {
+        padding-bottom: 16px;
+      }
+      .imageContentLast a {
+        display: block;
+      }
+      .richtext a:hover {
+        text-decoration-style: solid !important;
+      }
+      body,
+      #bodyTable {
+        background-color: #ffffff;
+      }
+      #bodyWrapper {
+        padding: 0 20px;
+        background-color: #f8f7f1;
+      }
+      #emailBody {
+        background-color: #f8f7f1;
+        border-collapse: separate;
+        border-left: 1px dotted #202020;
+        border-right: 1px dotted #202020;
+        margin: 0 auto;
+        width: 560px;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: #202020 !important;
+        font-family: Georgia, "Times New Roman", Times, serif !important;
+        text-align: left !important;
+        letter-spacing: -0.01em !important;
+        margin-top: -0.05em !important;
+        font-weight: bold !important;
+      }
+      h1 {
+        font-size: 32px;
+        line-height: 1.05;
+        letter-spacing: -0.025em !important;
+        margin-bottom: 0.25em;
+      }
+      h3 {
+        margin-bottom: 0.375em;
+      }
+      h4 {
+        font-size: 24px;
+        line-height: 1.125;
+        margin: 0;
+      }
+      h5 {
+        font-size: 16px;
+        line-height: 1.3;
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
+      small {
+        font-family: Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 1.3 !important;
+        display: inline-block;
+      }
+      .label,
+      .smallLink {
+        font-family: Helvetica, sans-serif !important;
+        font-size: 12px !important;
+        line-height: 1 !important;
+        color: #202020 !important;
+      }
+      .smallLink {
+        display: block;
+        font-size: 12px !important;
+        font-weight: normal !important;
+        color: #202020 !important;
+        text-decoration: none !important;
+        padding: 4px 0 !important;
+        font-family: Helvetica, sans-serif !important;
+      }
+      .textContent,
+      .textContent p,
+      .textContentLast {
+        color: #202020;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 16px;
+        line-height: 130%;
+        text-align: Left;
+      }
+      .noLeading {
+        line-height: 1;
+      }
+      .textContent p:not(:last-child) {
+        margin-bottom: 1em;
+      }
+      .textContent ul:first-child,
+      .textContent ol:first-child {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+      .textContent ul,
+      .textContent ol {
+        padding-left: 0.95em;
+        margin-left: 0;
+        font-size: 16px;
+        line-height: 130%;
+        text-align: Left;
+      }
+      .textContent ul li {
+        list-style: square;
+        position: relative;
+        margin-bottom: 1em;
+      }
+      .nestedContainer {
+        padding-top: 20px;
+      }
+      .section {
+        border-top: 2px solid #202020;
+      }
+      .emailButton {
+        background-color: #f8f7f1;
+        border-collapse: separate;
+        font-weight: normal;
+      }
+      .buttonContent {
+        color: #202020;
+        font-family: Helvetica;
+        font-size: 16px;
+        line-height: 100%;
+        text-align: center;
+      }
+      .buttonContent a {
+        color: #202020;
+        padding: 12px 20px;
+        display: block;
+        border: 1px dotted #202020;
+        text-decoration: none;
+      }
+      .buttonContent a:hover {
+        border: 1px solid #202020;
+      }
+      .emailFooter {
+        padding-bottom: 10px;
+        font-family: Helvetica, sans-serif;
+      }
+      .emailCalendar {
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+      }
+      .emailCalendarMonth {
+        background-color: #2c9ab7;
+        color: #ffffff;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+      }
+      .emailCalendarDay {
+        color: #2c9ab7;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 60px;
+        font-weight: bold;
+        line-height: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+      }
+      .emailSectionHeader {
+        padding-top: 12px;
+        padding-bottom: 8px;
+      }
+      .emailSectionHeader * {
+        font-weight: bold !important;
+        font-family: Helvetica, sans-serif !important;
+        font-size: 26px;
+        letter-spacing: -0.025em;
+      }
+      td[class="label"] {
+        padding-top: 8px !important;
+        position: relative;
+      }
+      .largePost {
+        padding-bottom: 1em;
+      }
+      .largePost p {
+        font-size: 20px;
+        line-height: 1.3;
+        letter-spacing: -0.00125em;
+        margin: 0;
+      }
+      .leftColumn {
+        border-right: 1px dotted #202020;
+        width: 260px;
+      }
+      .smallPost p {
+        font-size: 16px;
+        margin: 0.5em 0 0;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      .smallPost ul:first-child,
+      .smallPost ol:first-child {
+        margin-top: 0;
+        padding-top: 0;
+      }
+      .smallPost li p:first-child {
+        margin-top: 0;
+      }
+      .smallPost li:not(:last-child) {
+        margin-bottom: 1em;
+      }
+      .smallPostText {
+        font-size: 16px;
+        line-height: 1.3;
+        letter-spacing: -0.00125em;
+        margin: 0;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      .tinyPost p {
+        font-size: 16px;
+        margin: 0.5em 0 0;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      .tinyPost ul:first-child,
+      .tinyPost ol:first-child {
+        margin-top: 0;
+        padding-top: 0;
+      }
+      .tinyPost li p:first-child {
+        margin-top: 0;
+      }
+      .tinyPost li:not(:last-child) {
+        margin-bottom: 1em;
+      }
+      .endMatter {
+        border-bottom: 1px dotted #202020;
+        margin-top: 20px;
+        margin-bottom: 8px;
+      }
+      .endMatter td {
+        border-top: 1px dotted #202020;
+        width: 100%;
+      }
+      .socialLink {
+        outline: 1px dotted #202020 !important;
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        margin-right: 8px;
+      }
+      .socialLink:hover {
+        outline: 1px solid #202020 !important;
+      }
+      .leftColumnCell {
+        padding-right: 20px;
+      }
+      .subscribeLink {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 8px 0;
+      }
+      .ruleXl {
+        background: none;
+        width: 100%;
+        border-top: 4px solid #202020 !important;
+        border-style: solid !important;
+      }
+      .sectionSeparator {
+        border-top: 2px solid #202020;
+        margin: 18px 0 18px 0;
+      }
+      .sectionSeparatorThick {
+        border-top: 4px solid #202020;
+        margin: 12px 0 4px 0;
+      }
+      .sectionSeparatorHeader {
+        border-top: 2px solid #202020;
+        margin: 6px 0;
+      }
+      .sectionSeparatorDotted {
+        border-top: 1px dotted #202020;
+        margin: 18px 0 14px 0;
+      }
+      .sectionSeparatorDottedDense {
+        border-top: 1px dotted #202020;
+        margin: 6px 0 10px 0;
+      }
+      .verticalSeparator {
+        border-right: 1px dotted #202020;
+      }
+      .serif {
+        font-family: Georgia, "Times New Roman", Times, serif !important;
+      }
+      @media only screen and (max-width: 600px) {
+        body,
+        body,
+        #bodyTable {
+          width: 100% !important;
+          min-width: 100% !important;
+          background-color: #f8f7f1 !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        td[class="textContent"] h3,
+        td[class="textContent"] h3 a,
+        h3 a {
+          color: #202020;
+          font-family: Georgia, "Times New Roman", Times, serif;
+          font-size: 24px !important;
+          line-height: 110% !important;
+          text-align: left !important;
+          letter-spacing: -0.01em !important;
+          margin-top: -0.05em !important;
+          font-weight: normal;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        table[class="smallHeadline"] {
+          width: 60% !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .largePost p {
+          font-size: 16px !important;
+          line-height: 1.3 !important;
+          letter-spacing: -0.00125em !important;
+          margin: 0 !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        table[class="smallHeadline"] td[class="textContent"] h3,
+        table[class="smallHeadline"] td[class="textContent"] h3 a {
+          font-size: 24px !important;
+          line-height: 1.12 !important;
+          letter-spacing: -0.0025em !important;
+          margin: 0 !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        table[class="smallImage"] {
+          width: 40% !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        h1,
+        h1 a,
+        td[class="textContent"] h1 {
+          font-size: 26px !important;
+          line-height: 1.1 !important;
+          letter-spacing: -0.03em !important;
+          margin-bottom: 0.25em !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        h4,
+        td[class="textContent"] h4,
+        td[class="textContent"] h4 a,
+        h4 a {
+          font-size: 22px !important;
+          line-height: 1.12 !important;
+          letter-spacing: -0.02em !important;
+          margin: 0 !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        h5,
+        td[class="textContent"] h5,
+        td[class="textContent"] h5 a,
+        h5 a {
+          font-size: 16px !important;
+          line-height: 1.3 !important;
+          letter-spacing: -0.00125em !important;
+          margin: 0 !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        table[id="emailBody"],
+        table[class="flexibleContainer"] {
+          width: 100% !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        table[id="bodyWrapper"] {
+          width: calc(100% - 24px) !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        td[class="flexibleContainerCell"] {
+          padding-right: 12px !important;
+          padding-left: 12px !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .emailSectionHeader * {
+          font-size: 22px !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        img[class="flexibleImage"] {
+          height: auto !important;
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        table[class="emailButton"] {
+          width: 100% !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        table[class="leftColumn"] {
+          width: 100% !important;
+          margin-bottom: 12px !important;
+          border-bottom: 1px dotted #202020;
+          border-right: none !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        td[class="leftColumnCell"] {
+          border-right: none !important;
+          width: 100% !important;
+          padding-right: 0 !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        td[class="leftColumnCellText"] {
+          padding-bottom: 12px !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        td[class="smallPost"] p,
+        td[class="smallPostText"] p {
+          font-size: 14px !important;
+          line-height: 1.3 !important;
+          letter-spacing: 0 !important;
+          font-family: Georgia, "Times New Roman", Times, serif !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        td[class="buttonContent"] {
+          padding: 0 !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        td[class="buttonContent"] a {
+          padding: 15px !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        td[class="emailSectionHeader"] {
+          padding-bottom: 4px !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        td[class="emailSectionHeader"] * {
+          font-size: 22px !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        td[id="bodyCell"] {
+          padding-top: 0px !important;
+          padding-right: 0px !important;
+          padding-left: 0px !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <table
+        border="0"
+        cellpadding="0"
+        cellspacing="0"
+        height="100%"
+        width="100%"
+        id="bodyTable"
+      >
+        <tr>
+          <td align="center" valign="top" id="bodyCell">
+            <center>
+              <table
+                id="bodyWrapper"
+                border="0"
+                cellpadding="0"
+                cellspacing="0"
+                height="100%"
+                width="600"
+              >
+                <tr>
+                  <td>
+                    <!-- EMAIL CONTAINER // -->
+                    <center>
+                      <table
+                        border="0"
+                        cellpadding="0"
+                        cellspacing="0"
+                        width="560"
+                        id="emailBody"
+                      >
+                        <!-- HEADER // -->
+
+                        <tr>
+                          <td align="center" valign="top">
+                            <!-- CENTERING TABLE // -->
+                            <!--
+                                    	The centering table keeps the content
+                                        tables centered in the emailBody table,
+                                        in case its width is set to 100%.
+                                    -->
+                            <table
+                              border="0"
+                              cellpadding="0"
+                              cellspacing="0"
+                              width="100%"
+                            >
+                              <tr>
+                                <td align="center" valign="top">
+                                  <!-- FLEXIBLE CONTAINER // -->
+                                  <!--
+                                                	The flexible container has a set width
+                                                    that gets overridden by the media query.
+                                                    Most content tables within can then be
+                                                    given 100% widths.
+                                                -->
+                                  <table
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="560"
+                                    class="flexibleContainer"
+                                  >
+                                    <tr>
+                                      <td
+                                        align="center"
+                                        valign="top"
+                                        width="560"
+                                        class="flexibleContainerCell"
+                                      >
+                                        <!-- CONTENT TABLE // -->
+                                        <!--
+                                                            	The content table is the first element
+                                                                that's entirely separate from the structural
+                                                                framework of the email.
+                                                            -->
+                                        <table
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
+                                          width="100%"
+                                        >
+                                          <tr>
+                                            <td valign="center" class="label">
+                                              <div>*|DATE:F d, Y|*</div>
+                                            </td>
+                                            <td
+                                              valign="center"
+                                              class="label"
+                                              align="right"
+                                            >
+                                              <a
+                                                href="https://jingdaily.us1.list-manage.com/subscribe?u=555a04b48e1f20aecf5db4d61&id=8dec01cd8d"
+                                                title="Subscribe"
+                                                >Subscribe</a
+                                              >
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td colspan="3">
+                                              <hr class="ruleXl" />
+                                            </td>
+                                          </tr>
+
+                                          <tr>
+                                            <td
+                                              mc:edit="logo"
+                                              valign="top"
+                                              class="header"
+                                              colspan="3"
+                                            >
+                                              <a href="https://jingdaily.com/">
+                                                <img
+                                                  width="100%"
+                                                  src="https://mcusercontent.com/555a04b48e1f20aecf5db4d61/images/0ad2f7e8-a0e4-50a2-c309-1d16434e6142.jpg"
+                                                  alt="Jing Daily Web3"
+                                                />
+                                              </a>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                        <!-- // CONTENT TABLE -->
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- // FLEXIBLE CONTAINER -->
+                                </td>
+                              </tr>
+                            </table>
+                            <!-- // CENTERING TABLE -->
+                          </td>
+                        </tr>
+                        <!-- // HEADER -->
+
+                        <!-- MODULE: BUTTON ROW // -->
+                        <tr mc:repeatable="module" mc:variant="global: button">
+                          <td align="center" valign="top">
+                            <!-- CENTERING TABLE // -->
+                            <table
+                              border="0"
+                              cellpadding="0"
+                              cellspacing="0"
+                              width="100%"
+                            >
+                              <tr>
+                                <td align="center" valign="top">
+                                  <!-- FLEXIBLE CONTAINER // -->
+                                  <table
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="560"
+                                    class="flexibleContainer"
+                                  >
+                                    <tr>
+                                      <td
+                                        align="center"
+                                        valign="top"
+                                        width="560"
+                                        class="flexibleContainerCell"
+                                      >
+                                        <!-- CONTENT TABLE // -->
+
+                                        <table
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
+                                          class="emailButton"
+                                        >
+                                          <tr>
+                                            <td
+                                              align="center"
+                                              valign="middle"
+                                              class="buttonContent"
+                                              mc:edit="module_button"
+                                            >
+                                              <a href="#" target="_blank"
+                                                >Read more
+                                              </a>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                        <!-- // CONTENT TABLE -->
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- // FLEXIBLE CONTAINER -->
+                                </td>
+                              </tr>
+                            </table>
+                            <!-- // CENTERING TABLE -->
+                          </td>
+                        </tr>
+                        <!-- // MODULE: BUTTON ROW -->
+
+                        <!-- MODULE: TEXT ONLY ROW // -->
+                        <tr
+                          mc:repeatable="module"
+                          mc:variant="global: text only"
+                        >
+                          <td align="center" valign="top">
+                            <!-- CENTERING TABLE // -->
+                            <table
+                              border="0"
+                              cellpadding="0"
+                              cellspacing="0"
+                              width="100%"
+                            >
+                              <tr>
+                                <td align="center" valign="top">
+                                  <!-- FLEXIBLE CONTAINER // -->
+                                  <table
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="560"
+                                    class="flexibleContainer"
+                                  >
+                                    <tr>
+                                      <td
+                                        align="center"
+                                        valign="top"
+                                        width="560"
+                                        class="flexibleContainerCell"
+                                      >
+                                        <table
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
+                                          width="100%"
+                                          class="nestedContainer"
+                                        >
+                                          <tr>
+                                            <td
+                                              align="center"
+                                              valign="top"
+                                              class="nestedContainerCell"
+                                            >
+                                              <!-- CONTENT TABLE // -->
+                                              <table
+                                                border="0"
+                                                cellpadding="0"
+                                                cellspacing="0"
+                                                width="100%"
+                                              >
+                                                <tr>
+                                                  <td
+                                                    valign="top"
+                                                    class="textContent smallPost textOnly"
+                                                    mc:edit="module_text"
+                                                  >
+                                                    <h3>Title</h3>
+                                                    <p>
+                                                      A kitten or kitty is a
+                                                      juvenile domesticated cat.
+                                                      A feline litter usually
+                                                      consists of two to five
+                                                      kittens. To survive,
+                                                      kittens need the care of
+                                                      their mother for the first
+                                                      several weeks of their
+                                                      life. Kittens are highly
+                                                      social animals and spend
+                                                      most of their waking hours
+                                                      playing and interacting
+                                                      with available companions.
+                                                    </p>
+                                                    <ul>
+                                                      <li>List item 1</li>
+                                                      <li>List item 2</li>
+                                                      <li>List item 3</li>
+                                                      <li>List item 4</li>
+                                                    </ul>
+                                                    <ol>
+                                                      <li>List item 1</li>
+                                                      <li>List item 2</li>
+                                                      <li>List item 3</li>
+                                                      <li>List item 4</li>
+                                                    </ol>
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                              <!-- // CONTENT TABLE -->
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- // FLEXIBLE CONTAINER -->
+                                </td>
+                              </tr>
+                            </table>
+                            <!-- // CENTERING TABLE -->
+                          </td>
+                        </tr>
+                        <!-- // MODULE: TEXT ONLY ROW -->
+
+                        <!-- MODULE: LARGE POST ROW // -->
+                        <tr mc:repeatable="module" mc:variant="post: full size">
+                          <td align="center" valign="top" class="largePost">
+                            <!-- CENTERING TABLE // -->
+                            <table
+                              border="0"
+                              cellpadding="0"
+                              cellspacing="0"
+                              width="100%"
+                            >
+                              <tr>
+                                <td align="center" valign="top">
+                                  <!-- FLEXIBLE CONTAINER // -->
+                                  <table
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="560"
+                                    class="flexibleContainer"
+                                  >
+                                    <tr>
+                                      <td
+                                        align="center"
+                                        valign="top"
+                                        width="560"
+                                        class="flexibleContainerCell"
+                                      >
+                                        <!-- CONTENT TABLE // -->
+                                        <table
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
+                                          width="100%"
+                                        >
+                                          <tr>
+                                            <td
+                                              valign="top"
+                                              class="imageContentLast"
+                                              mc:edit="module_large_image"
+                                            >
+                                              <img
+                                                src="https://mcusercontent.com/555a04b48e1f20aecf5db4d61/images/99f408c5-d83a-607d-662b-3229fa6d988d.jpg"
+                                                width="520"
+                                                class="flexibleImage"
+                                              />
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td
+                                              valign="top"
+                                              class="textContent"
+                                            >
+                                              <h1
+                                                mc:edit="module_large_text_headline"
+                                              >
+                                                <a
+                                                  href="https://jingdaily.com/posts/penfolds-venture-beyond-wine-experience-guangzhou"
+                                                  >Penfolds brings ‘Venture
+                                                  Beyond’ wine experience to
+                                                  Guangzhou
+                                                </a>
+                                              </h1>
+
+                                              <div
+                                                mc:edit="module_large_text_description"
+                                              >
+                                                <p>
+                                                  The immersive showcase
+                                                  spotlights
+                                                  <a href="#">Penfolds’</a>
+                                                  boundary-breaking approach to
+                                                  wine-making and enhances wine
+                                                  culture in China.
+                                                </p>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                        <!-- // CONTENT TABLE -->
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- // FLEXIBLE CONTAINER -->
+                                </td>
+                              </tr>
+                            </table>
+                            <!-- // CENTERING TABLE -->
+                          </td>
+                        </tr>
+                        <!-- // MODULE: LARGE POST ROW -->
+
+                        <!-- MODULE ROW // -->
+                        <tr
+                          mc:repeatable="module"
+                          mc:variant="post: two column"
+                        >
+                          <td align="center" valign="top">
+                            <!-- CENTERING TABLE // -->
+                            <table
+                              border="0"
+                              cellpadding="0"
+                              cellspacing="0"
+                              width="100%"
+                            >
+                              <tr>
+                                <td align="center" valign="top">
+                                  <!-- FLEXIBLE CONTAINER // -->
+                                  <table
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="560"
+                                    class="flexibleContainer"
+                                  >
+                                    <tr>
+                                      <td
+                                        align="center"
+                                        valign="top"
+                                        width="560"
+                                        class="flexibleContainerCell"
+                                      >
+                                        <table
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
+                                          width="100%"
+                                          class="nestedContainer"
+                                        >
+                                          <tr>
+                                            <td
+                                              valign="top"
+                                              class="nestedContainerCell"
+                                            >
+                                              <!-- CONTENT TABLE // -->
+                                              <table
+                                                align="left"
+                                                border="0"
+                                                cellpadding="0"
+                                                cellspacing="0"
+                                                width="260"
+                                                class="leftColumn"
+                                              >
+                                                <tr>
+                                                  <td
+                                                    valign="top"
+                                                    class="leftColumnCell"
+                                                    mc:edit="module_left_column_image"
+                                                  >
+                                                    <a href="#">
+                                                      <img
+                                                        src="https://mcusercontent.com/555a04b48e1f20aecf5db4d61/images/99f408c5-d83a-607d-662b-3229fa6d988d.jpg"
+                                                        width="240"
+                                                        class="flexibleImage"
+                                                        style="max-width: 240px"
+                                                      />
+                                                    </a>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td
+                                                    valign="top"
+                                                    class="leftColumnCellText"
+                                                    mc:edit="module_left_column_text"
+                                                  >
+                                                    <h3>
+                                                      <a href="#"
+                                                        >Prada’s China ambitions
+                                                        behind ‘Pradasphere II’
+                                                        in Shanghai
+                                                      </a>
+                                                    </h3>
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                              <!-- // CONTENT TABLE -->
+
+                                              <!-- CONTENT TABLE // -->
+                                              <table
+                                                align="Right"
+                                                border="0"
+                                                cellpadding="0"
+                                                cellspacing="0"
+                                                width="240"
+                                                class="flexibleContainer"
+                                              >
+                                                <tr>
+                                                  <td
+                                                    valign="top"
+                                                    class="imageContentLast"
+                                                    mc:edit="module_right_column_image"
+                                                  >
+                                                    <a href="#">
+                                                      <img
+                                                        src="https://mcusercontent.com/555a04b48e1f20aecf5db4d61/images/5f1a0908-65cc-4bb4-6672-f0f186e0affd.jpg"
+                                                        width="240"
+                                                        class="flexibleImage"
+                                                        style="max-width: 240px"
+                                                      />
+                                                    </a>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td
+                                                    valign="top"
+                                                    class=""
+                                                    mc:edit="module_right_column_text"
+                                                  >
+                                                    <h3>
+                                                      <a href="#"
+                                                        >Thailand's luxury
+                                                        market surpasses
+                                                        Singapore, fueled by Gen
+                                                        Z and 'T-pop'
+                                                      </a>
+                                                    </h3>
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                              <!-- // CONTENT TABLE -->
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- // FLEXIBLE CONTAINER -->
+                                </td>
+                              </tr>
+                            </table>
+                            <!-- // CENTERING TABLE -->
+                          </td>
+                        </tr>
+                        <!-- // MODULE ROW -->
+
+                        <!-- MODULE: TEXT LEFT + IMAGE RIGHT ROW // -->
+                        <tr
+                          mc:repeatable="module"
+                          mc:variant="post: text + image"
+                        >
+                          <td align="center" valign="top">
+                            <!-- CENTERING TABLE // -->
+                            <table
+                              border="0"
+                              cellpadding="0"
+                              cellspacing="0"
+                              width="100%"
+                            >
+                              <tr>
+                                <td align="center" valign="top">
+                                  <!-- FLEXIBLE CONTAINER // -->
+                                  <table
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="560"
+                                    class="flexibleContainer"
+                                  >
+                                    <tr>
+                                      <td
+                                        align="center"
+                                        valign="top"
+                                        width="560"
+                                        class="flexibleContainerCell"
+                                      >
+                                        <table
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
+                                          width="100%"
+                                          class="nestedContainer"
+                                        >
+                                          <tr>
+                                            <td valign="top">
+                                              <!-- CONTENT TABLE // -->
+                                              <table
+                                                align="Right"
+                                                border="0"
+                                                cellpadding="0"
+                                                cellspacing="0"
+                                                width="200"
+                                                class="smallImage"
+                                              >
+                                                <tr>
+                                                  <td
+                                                    align="left"
+                                                    valign="top"
+                                                    class="imageContentLast"
+                                                    mc:edit="module_small_image"
+                                                  >
+                                                    <a href="#">
+                                                      <img
+                                                        src="https://mcusercontent.com/555a04b48e1f20aecf5db4d61/images/99f408c5-d83a-607d-662b-3229fa6d988d.jpg"
+                                                        width="240"
+                                                        class="flexibleImage"
+                                                        style="max-width: 240px"
+                                                      />
+                                                    </a>
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                              <!-- // CONTENT TABLE -->
+
+                                              <!-- CONTENT TABLE // -->
+                                              <table
+                                                align="left"
+                                                border="0"
+                                                cellpadding="0"
+                                                cellspacing="0"
+                                                width="250"
+                                                class="smallHeadline"
+                                              >
+                                                <tr>
+                                                  <td
+                                                    valign="top"
+                                                    class="textContent"
+                                                    mc:edit="module_small_text"
+                                                  >
+                                                    <h3>
+                                                      <a href="#">
+                                                        Thailand's luxury market
+                                                        surpasses Singapore,
+                                                        fueled by Gen Z and
+                                                        'T-pop'
+                                                      </a>
+                                                    </h3>
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                              <!-- // CONTENT TABLE -->
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- // FLEXIBLE CONTAINER -->
+                                </td>
+                              </tr>
+                            </table>
+                            <!-- // CENTERING TABLE -->
+                          </td>
+                        </tr>
+                        <!-- // MODULE: TEXT LEFT + IMAGE RIGHT ROW -->
+
+                        <!-- MODULE: SEPARATOR HEADER ROW // -->
+                        <tr mc:repeatable="module" mc:variant="global: header">
+                          <td
+                            align="center"
+                            valign="top"
+                            class="emailSectionHeader"
+                          >
+                            <!-- CENTERING TABLE // -->
+                            <table
+                              border="0"
+                              cellpadding="0"
+                              cellspacing="0"
+                              width="100%"
+                            >
+                              <tr>
+                                <td align="center" valign="top">
+                                  <!-- FLEXIBLE CONTAINER // -->
+                                  <table
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="560"
+                                    class="flexibleContainer"
+                                  >
+                                    <tr>
+                                      <td
+                                        align="center"
+                                        valign="top"
+                                        width="560"
+                                        class="flexibleContainerCell"
+                                      >
+                                        <table
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
+                                          width="100%"
+                                          class="nestedContainer"
+                                        >
+                                          <tr>
+                                            <td align="center" valign="top">
+                                              <!-- CONTENT TABLE // -->
+                                              <table
+                                                border="0"
+                                                cellpadding="0"
+                                                cellspacing="0"
+                                                width="100%"
+                                              >
+                                                <tr>
+                                                  <td valign="top" class="">
+                                                    <hr
+                                                      class="sectionSeparatorHeader"
+                                                    />
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td>
+                                                    <h2
+                                                      mc:edit="module_headline"
+                                                    >
+                                                      News Bites
+                                                    </h2>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td valign="top" class="">
+                                                    <hr
+                                                      class="sectionSeparatorDottedDense"
+                                                    />
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                              <!-- // CONTENT TABLE -->
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- // FLEXIBLE CONTAINER -->
+                                </td>
+                              </tr>
+                            </table>
+                            <!-- // CENTERING TABLE -->
+                          </td>
+                        </tr>
+                        <!-- // MODULE: SEPARATOR HEADER ROW -->
+
+                        <!-- MODULE: TEXT ONLY: SMALL ROW // -->
+                        <tr mc:repeatable="module" mc:variant="post: text only">
+                          <td align="center" valign="top" class="smallPost">
+                            <!-- CENTERING TABLE // -->
+                            <table
+                              border="0"
+                              cellpadding="0"
+                              cellspacing="0"
+                              width="100%"
+                            >
+                              <tr>
+                                <td align="center" valign="top">
+                                  <!-- FLEXIBLE CONTAINER // -->
+                                  <table
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="560"
+                                    class="flexibleContainer"
+                                  >
+                                    <tr>
+                                      <td
+                                        align="center"
+                                        valign="top"
+                                        width="560"
+                                        class="flexibleContainerCell"
+                                      >
+                                        <table
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
+                                          width="100%"
+                                          class="nestedContainer"
+                                        >
+                                          <tr>
+                                            <td valign="top">
+                                              <!-- CONTENT TABLE // -->
+                                              <table
+                                                align="left"
+                                                border="0"
+                                                cellpadding="0"
+                                                cellspacing="0"
+                                                class="flexibleContainer"
+                                              >
+                                                <tr>
+                                                  <td
+                                                    valign="top"
+                                                    class="smallPostHeadline"
+                                                  >
+                                                    <h4>
+                                                      <a
+                                                        href="#"
+                                                        mc:edit="module_small_post_headline"
+                                                      >
+                                                        Van Cleef & Arpels
+                                                        presented the third
+                                                        edition of its
+                                                        &ldquo;Danse en
+                                                        Images&rdquo; (Dance in
+                                                        Images) showcase.
+                                                      </a>
+                                                    </h4>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td class="smallPostText">
+                                                    <p
+                                                      mc:edit="module_small_post_text"
+                                                    >
+                                                      Comprising over 20 dance
+                                                      film works and workshops
+                                                      by French dance masters,
+                                                      in Beijing from December 7
+                                                      to 9. The event is
+                                                      intended to promote the
+                                                      relationship between
+                                                      <a href="#"
+                                                        >Van Cleef & Arpels and
+                                                        dance through diverse
+                                                        collaborative projects.
+                                                      </a>
+                                                    </p>
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                              <!-- // CONTENT TABLE -->
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- // FLEXIBLE CONTAINER -->
+                                </td>
+                              </tr>
+                            </table>
+                            <!-- // CENTERING TABLE -->
+                          </td>
+                        </tr>
+                        <!-- // MODULE: TEXT ONLY: SMALL ROW -->
+
+                        <!-- MODULE: SEPARATOR DOTTED ROW // -->
+                        <tr
+                          mc:repeatable="module"
+                          mc:variant="separator: dotted"
+                        >
+                          <td align="center" valign="top">
+                            <!-- CENTERING TABLE // -->
+                            <table
+                              border="0"
+                              cellpadding="0"
+                              cellspacing="0"
+                              width="100%"
+                            >
+                              <tr>
+                                <td align="center" valign="top">
+                                  <!-- FLEXIBLE CONTAINER // -->
+                                  <table
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="560"
+                                    class="flexibleContainer"
+                                  >
+                                    <tr>
+                                      <td
+                                        align="center"
+                                        valign="top"
+                                        width="560"
+                                        class="flexibleContainerCell"
+                                      >
+                                        <table
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
+                                          width="100%"
+                                          class="nestedContainer"
+                                        >
+                                          <tr>
+                                            <td align="center" valign="top">
+                                              <!-- CONTENT TABLE // -->
+                                              <table
+                                                border="0"
+                                                cellpadding="0"
+                                                cellspacing="0"
+                                                width="100%"
+                                              >
+                                                <tr>
+                                                  <td valign="top" class="">
+                                                    <hr
+                                                      class="sectionSeparatorDotted"
+                                                    />
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                              <!-- // CONTENT TABLE -->
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- // FLEXIBLE CONTAINER -->
+                                </td>
+                              </tr>
+                            </table>
+                            <!-- // CENTERING TABLE -->
+                          </td>
+                        </tr>
+                        <!-- // MODULE: SEPARATOR DOTTED ROW -->
+
+                        <!-- MODULE: SEPARATOR SOLID ROW // -->
+                        <tr
+                          mc:repeatable="module"
+                          mc:variant="separator: solid"
+                        >
+                          <td align="center" valign="top">
+                            <!-- CENTERING TABLE // -->
+                            <table
+                              border="0"
+                              cellpadding="0"
+                              cellspacing="0"
+                              width="100%"
+                            >
+                              <tr>
+                                <td align="center" valign="top">
+                                  <!-- FLEXIBLE CONTAINER // -->
+                                  <table
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="560"
+                                    class="flexibleContainer"
+                                  >
+                                    <tr>
+                                      <td
+                                        align="center"
+                                        valign="top"
+                                        width="560"
+                                        class="flexibleContainerCell"
+                                      >
+                                        <table
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
+                                          width="100%"
+                                          class="nestedContainer"
+                                        >
+                                          <tr>
+                                            <td align="center" valign="top">
+                                              <!-- CONTENT TABLE // -->
+                                              <table
+                                                border="0"
+                                                cellpadding="0"
+                                                cellspacing="0"
+                                                width="100%"
+                                              >
+                                                <tr>
+                                                  <td valign="top" class="">
+                                                    <hr
+                                                      class="sectionSeparator"
+                                                    />
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                              <!-- // CONTENT TABLE -->
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- // FLEXIBLE CONTAINER -->
+                                </td>
+                              </tr>
+                            </table>
+                            <!-- // CENTERING TABLE -->
+                          </td>
+                        </tr>
+                        <!-- // MODULE: SEPARATOR SOLID ROW -->
+
+                        <!-- MODULE: ADVERTISEMENT ROW // -->
+                        <tr mc:repeatable="module" mc:variant="global: image">
+                          <td align="center" valign="top">
+                            <!-- CENTERING TABLE // -->
+                            <table
+                              border="0"
+                              cellpadding="0"
+                              cellspacing="0"
+                              width="100%"
+                            >
+                              <tr>
+                                <td align="center" valign="top">
+                                  <!-- FLEXIBLE CONTAINER // -->
+                                  <table
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="560"
+                                    class="flexibleContainer"
+                                  >
+                                    <tr>
+                                      <td
+                                        align="center"
+                                        valign="top"
+                                        width="560"
+                                        class="flexibleContainerCell"
+                                      >
+                                        <table
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
+                                          width="100%"
+                                          class="nestedContainer"
+                                        >
+                                          <tr>
+                                            <td valign="top">
+                                              <!-- CONTENT TABLE // -->
+                                              <table
+                                                align="Right"
+                                                border="0"
+                                                cellpadding="0"
+                                                cellspacing="0"
+                                                width="100%"
+                                                class="flexibleContainer"
+                                              >
+                                                <tr>
+                                                  <td
+                                                    align="left"
+                                                    valign="top"
+                                                    mc:edit="module_image_only"
+                                                  >
+                                                    <a href="#">
+                                                      <img
+                                                        src="https://mcusercontent.com/555a04b48e1f20aecf5db4d61/images/99f408c5-d83a-607d-662b-3229fa6d988d.jpg"
+                                                        width="100%"
+                                                      />
+                                                    </a>
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                              <!-- // CONTENT TABLE -->
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- // FLEXIBLE CONTAINER -->
+                                </td>
+                              </tr>
+                            </table>
+                            <!-- // CENTERING TABLE -->
+                          </td>
+                        </tr>
+                        <!-- // MODULE: ADVERTISEMENT ROW -->
+
+                        <!-- MODULE: TEXT SMALL ONLY: SMALL ROW // -->
+                        <tr
+                          mc:repeatable="module"
+                          mc:variant="post: small text only"
+                        >
+                          <td align="center" valign="top" class="tinyPost">
+                            <!-- CENTERING TABLE // -->
+                            <table
+                              border="0"
+                              cellpadding="0"
+                              cellspacing="0"
+                              width="100%"
+                            >
+                              <tr>
+                                <td align="center" valign="top">
+                                  <!-- FLEXIBLE CONTAINER // -->
+                                  <table
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="560"
+                                    class="flexibleContainer"
+                                  >
+                                    <tr>
+                                      <td
+                                        align="center"
+                                        valign="top"
+                                        width="560"
+                                        class="flexibleContainerCell"
+                                      >
+                                        <table
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
+                                          width="100%"
+                                          class="nestedContainer"
+                                        >
+                                          <tr>
+                                            <td valign="top">
+                                              <!-- CONTENT TABLE // -->
+                                              <table
+                                                align="left"
+                                                border="0"
+                                                cellpadding="0"
+                                                cellspacing="0"
+                                                class="flexibleContainer"
+                                              >
+                                                <tr>
+                                                  <td
+                                                    valign="top"
+                                                    class="smallPostHeadline"
+                                                  >
+                                                    <h5>
+                                                      <a
+                                                        href="#"
+                                                        mc:edit="module_small_text_post_headline"
+                                                      >
+                                                        Van Cleef & Arpels
+                                                        presented the third
+                                                        edition of its
+                                                        &ldquo;Danse en
+                                                        Images&rdquo; (Dance in
+                                                        Images) showcase.
+                                                      </a>
+                                                    </h5>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td class="smallPostText">
+                                                    <p
+                                                      mc:edit="module_small_text_post_text"
+                                                    >
+                                                      Comprising over 20 dance
+                                                      film works and workshops
+                                                      by French dance masters,
+                                                      in Beijing from December 7
+                                                      to 9. The event is
+                                                      intended to promote the
+                                                      relationship between
+                                                      <a href="#"
+                                                        >Van Cleef & Arpels and
+                                                        dance through diverse
+                                                        collaborative projects.
+                                                      </a>
+                                                    </p>
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                              <!-- // CONTENT TABLE -->
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- // FLEXIBLE CONTAINER -->
+                                </td>
+                              </tr>
+                            </table>
+                            <!-- // CENTERING TABLE -->
+                          </td>
+                        </tr>
+                        <!-- // MODULE: TEXT ONLY: SMALL ROW -->
+
+                        <!-- FOOTER // -->
+                        <tr>
+                          <td align="center" valign="top">
+                            <!-- CENTERING TABLE // -->
+                            <table
+                              border="0"
+                              cellpadding="0"
+                              cellspacing="0"
+                              width="100%"
+                            >
+                              <tr>
+                                <td
+                                  align="center"
+                                  valign="top"
+                                  class="emailSectionHeader"
+                                >
+                                  <!-- FLEXIBLE CONTAINER // -->
+                                  <table
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="560"
+                                    class="flexibleContainer"
+                                  >
+                                    <tr>
+                                      <td
+                                        align="center"
+                                        valign="top"
+                                        width="560"
+                                        class="flexibleContainerCell"
+                                      >
+                                        <table
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
+                                          width="100%"
+                                          class="nestedContainer"
+                                        >
+                                          <tr>
+                                            <td align="center" valign="top">
+                                              <!-- CONTENT TABLE // -->
+                                              <table
+                                                border="0"
+                                                cellpadding="0"
+                                                cellspacing="0"
+                                                width="100%"
+                                              >
+                                                <tr>
+                                                  <td valign="top" class="">
+                                                    <hr
+                                                      class="sectionSeparatorHeader"
+                                                    />
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td>
+                                                    <h2>Stay connected</h2>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td valign="top" class="">
+                                                    <hr
+                                                      class="sectionSeparatorDottedDense"
+                                                    />
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                              <!-- // CONTENT TABLE -->
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- // FLEXIBLE CONTAINER -->
+                                </td>
+                              </tr>
+                              <!-- SOCIAL LINKS -->
+                              <tr>
+                                <td valign="top" class="flexibleContainerCell">
+                                  <table>
+                                    <tr>
+                                      <td class="socialLink">
+                                        <a
+                                          href="https://www.facebook.com/jingdaily/"
+                                          title="Facebook"
+                                        >
+                                          <img
+                                            width="40"
+                                            height="40"
+                                            src="https://mcusercontent.com/555a04b48e1f20aecf5db4d61/images/21ee1233-1b5a-652a-29c7-651b54b3fb7b.jpg"
+                                            alt="Facebook"
+                                          />
+                                        </a>
+                                      </td>
+                                      <td class="socialLink">
+                                        <a
+                                          href="https://x.com/JingDaily"
+                                          title="X"
+                                        >
+                                          <img
+                                            width="40"
+                                            height="40"
+                                            src="https://mcusercontent.com/555a04b48e1f20aecf5db4d61/images/6db217b4-cd37-b1a9-b876-898bc6c106a5.jpg"
+                                            alt="X"
+                                          />
+                                        </a>
+                                      </td>
+                                      <td class="socialLink">
+                                        <a
+                                          href="https://www.instagram.com/jingdaily/"
+                                          title="Instagram"
+                                        >
+                                          <img
+                                            width="40"
+                                            height="40"
+                                            src="https://mcusercontent.com/555a04b48e1f20aecf5db4d61/images/601f51cf-2298-593f-9a5c-6e5ee32ffb0c.jpg"
+                                            alt="IG"
+                                          />
+                                        </a>
+                                      </td>
+                                      <td class="socialLink">
+                                        <a
+                                          href="https://www.linkedin.com/company/jing-daily"
+                                          title="LinkedIn"
+                                        >
+                                          <img
+                                            width="40"
+                                            height="40"
+                                            src="https://mcusercontent.com/555a04b48e1f20aecf5db4d61/images/c425b717-bdbd-9ef9-27b6-81f19d92f5df.jpg"
+                                            alt="LinkedIn"
+                                          />
+                                        </a>
+                                      </td>
+                                      <td class="socialLink">
+                                        <a
+                                          href="https://weixin.qq.com/r/FjsOFi3ElHDrrWl1924E"
+                                          title="WeChat"
+                                        >
+                                          <img
+                                            width="40"
+                                            height="40"
+                                            src="https://mcusercontent.com/555a04b48e1f20aecf5db4d61/images/2b8cfbfb-07bd-e1af-e6d4-9aa46e389d39.jpg"
+                                            alt="WeChat"
+                                          />
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </table>
+
+                                  <table width="100%">
+                                    <!-- END MATTER -->
+                                    <tr>
+                                      <td>
+                                        <table class="endMatter" width="100%">
+                                          <tr>
+                                            <td class="smallLink">
+                                              <a
+                                                href="https://jingdaily.com/pages/contact"
+                                                title="Get in touch"
+                                                >Get in touch
+                                              </a>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td class="smallLink">
+                                              <a
+                                                href="https://jingdaily.com/pages/advertise"
+                                                title="Advertise with us"
+                                                >Advertise with us
+                                              </a>
+                                            </td>
+                                          </tr>
+
+                                          <tr>
+                                            <td class="smallLink">
+                                              <a
+                                                title="Manage preferences"
+                                                href="*|UPDATE_PROFILE|*"
+                                                >Manage preferences
+                                              </a>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td class="smallLink">
+                                              <a
+                                                title="View all newsletters"
+                                                href="https://jingdaily.us1.list-manage.com/subscribe?u=555a04b48e1f20aecf5db4d61&id=8dec01cd8d"
+                                                >View all newsletters
+                                              </a>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                    <!-- END MATTER -->
+                                  </table>
+                                </td>
+                              </tr>
+                              <!-- // SOCIAL LINKS -->
+
+                              <!-- FOOTER // -->
+                              <tr>
+                                <td
+                                  align="center"
+                                  valign="top"
+                                  class="emailFooter"
+                                >
+                                  <!-- CENTERING TABLE // -->
+                                  <table
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="100%"
+                                  >
+                                    <tr>
+                                      <td align="center" valign="top">
+                                        <!-- FLEXIBLE CONTAINER // -->
+                                        <table
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
+                                          width="560"
+                                          class="flexibleContainer"
+                                        >
+                                          <tr>
+                                            <td
+                                              align="center"
+                                              valign="top"
+                                              width="560"
+                                              class="flexibleContainerCell"
+                                            >
+                                              <table
+                                                border="0"
+                                                cellpadding="0"
+                                                cellspacing="0"
+                                                width="100%"
+                                                class="nestedContainer"
+                                              >
+                                                <tr>
+                                                  <td
+                                                    align="center"
+                                                    valign="top"
+                                                  >
+                                                    <!-- CONTENT TABLE // -->
+                                                    <table
+                                                      border="0"
+                                                      cellpadding="0"
+                                                      cellspacing="0"
+                                                      width="100%"
+                                                    >
+                                                      <tr>
+                                                        <td>
+                                                          <small
+                                                            >You are receiving
+                                                            this email because
+                                                            you signed up for
+                                                            updates from Jing
+                                                            Daily. You can
+                                                            <a
+                                                              href="*|UPDATE_PROFILE|*"
+                                                              >update your
+                                                              preferences or </a
+                                                            ><a href="*|UNSUB|*"
+                                                              >unsubscribe from
+                                                              this list. If you
+                                                              are having trouble
+                                                              viewing this email
+                                                              you can view this
+                                                              in your browser.
+                                                            </a>
+                                                          </small>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td
+                                                          valign="top"
+                                                          class=""
+                                                        >
+                                                          <hr
+                                                            class="sectionSeparatorThick"
+                                                          />
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <small
+                                                            >© *|CURRENT_YEAR|*
+                                                            *|LIST:COMPANY|*<br /><em
+                                                              >The business of
+                                                              global luxury in
+                                                              China.</em
+                                                            >
+                                                          </small>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                    <!-- // CONTENT TABLE -->
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                        <!-- // FLEXIBLE CONTAINER -->
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- // CENTERING TABLE -->
+                                </td>
+                              </tr>
+                              <!-- // MODULE: SEPARATOR HEADER ROW -->
+                            </table>
+                            <!-- // CENTERING TABLE -->
+                          </td>
+                        </tr>
+                        <!-- // FOOTER -->
+                      </table>
+                    </center>
+                    <!-- // EMAIL CONTAINER -->
+                  </td>
+                </tr>
+              </table>
+            </center>
+          </td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
